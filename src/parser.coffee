@@ -116,7 +116,7 @@ class exports.Parser extends events
             obj[attrkey][processedKey] = newValue
 
       # need a place to store the node name
-      obj["#name"] = if @options.tagNameProcessors then processItem(@options.tagNameProcessors, node.name) else node.name
+      obj["#name"] = if @options.tagNameProcessors then processItem(@options.tagNameProcessors, node.name, node.attributes) else node.name
       if (@options.xmlns)
         obj[@options.xmlnskey] = {uri: node.uri, local: node.local}
       stack.push obj
